@@ -1,0 +1,29 @@
+{
+  "name": "ac-secure-auth-lab",
+  "version": "2.0.0",
+  "private": true,
+  "description": "HC-ADS authenticated hybrid encryption lab with secure registration and login",
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "dev": "node --watch --env-file-if-exists=.env server/index.js",
+    "setup": "node scripts/setup.js",
+    "test": "node --test tests/*.test.js",
+    "check": "node scripts/check.js",
+    "build": "node scripts/build-vendor.js",
+    "postinstall": "node scripts/build-vendor.js",
+    "db:view": "node --env-file-if-exists=.env scripts/database.js view",
+    "db:export": "node --env-file-if-exists=.env scripts/database.js export",
+    "check:publish": "node scripts/check-public-source.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "crypto-js": "4.2.0",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": { "esbuild": "^0.25.11" }
+}
